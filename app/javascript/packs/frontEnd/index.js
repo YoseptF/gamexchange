@@ -1,33 +1,21 @@
-// Run this example by adding <%= javascript_pack_tag 'hello_react' %>
-// to the head of your layout file,
-// like app/views/layouts/application.html.erb. All it does is render
-// <div>Hello React</div> at the bottom
-// of the page.
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import './index.css';
+import { Provider } from 'react-redux';
+import App from './components/containers/App';
+import store from './store';
+import * as serviceWorker from './serviceWorker';
 
-const Hello = ({ name }) => (
-  <div>
-    Hello
-    {' '}
-    {name}
-    !
-  </div>
+document.querySelector('body').innerHTML += '<div id="root"></div>';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
 );
 
-Hello.defaultProps = {
-  name: 'David',
-};
-
-Hello.propTypes = {
-  name: PropTypes.string,
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="React" />,
-    document.getElementById('root'),
-  );
-});
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
