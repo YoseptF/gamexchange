@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
-require 'activestorage-imgur'
 
 User.create(
   name: 'Joseph',
@@ -96,6 +95,22 @@ ShowCase.create(
   subtitle: Faker::Lorem.sentence(word_count: 4), 
   title: Faker::Lorem.sentence(word_count: 6), 
   home_config_id: 1
+)
+
+ShowCaseDatum.create(
+  title: Faker::Lorem.sentence(word_count: 2), 
+  paragraph: Faker::Lorem.sentence(word_count: 15), 
+  reverse: true, 
+  hasButton: false, 
+  show_case_id: 1
+)
+
+ShowCaseDatum.create(
+  title: Faker::Lorem.sentence(word_count: 2), 
+  paragraph: Faker::Lorem.sentence(word_count: 15), 
+  reverse: false, 
+  hasButton: false, 
+  show_case_id: 1
 )
 
 ShowCaseDatum.create(
