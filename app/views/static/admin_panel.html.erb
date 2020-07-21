@@ -4,7 +4,7 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
     <%= f.label :hero %>
-    <%= image_tag url_for(@configs.hero), class: 'heroPreview' %>
+    <%= image_tag @configs.hero.attached? ? url_for(@configs.hero) : 'https://via.placeholder.com', class: 'heroPreview' %>
     <%= f.file_field :hero %>
     <%= f.label :logo %>
     <%= image_tag url_for(@configs.logo), class: 'logoPreview' %>

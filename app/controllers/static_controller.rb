@@ -8,7 +8,7 @@ class StaticController < ApplicationController
   end
 
   def update_config
-    p params, 'dogo'
+    p home_params, 'dogo'
     HomeConfig.first.update(home_params)
     redirect_to adminPanel_path
   end

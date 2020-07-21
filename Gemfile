@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-gem 'activestorage-imgur', git: 'https://github.com/YoseptF/activestorage-imgur'
+gem 'azure-storage'
 gem 'faker'
 gem 'hirb'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
