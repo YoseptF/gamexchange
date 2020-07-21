@@ -40,13 +40,13 @@
     <legend>Theme: </legend>
     <%= f.fields_for :theme, @configs.theme do |tf| %>
       <%= tf.label :primary %>
-      <input type="color" name="theme[primary]" id="theme_primary" value="<%= @configs.theme.primary %>"%>
+      <input type="color" name="home_config[theme_attributes][primary]" id="home_config_theme_attributes_primary" value="<%= @configs.theme.primary %>"%>
       <input type="text" value="<%= @configs.theme.primary %>" id="primaryText" disabled>
       <%= tf.label :background %>
-      <input type="color" name="theme[background]" id="theme_background" value="<%= @configs.theme.background %>"%>
+      <input type="color" name="home_config[theme_attributes][background]" id="home_config_theme_attributes_background" value="<%= @configs.theme.background %>"%>
       <input type="text" value="<%= @configs.theme.background %>" id="backgroundText" disabled>
       <%= tf.label :subtitles %>
-      <input type="color" name="theme[subtitles]" id="theme_subtitles" value="<%= @configs.theme.subtitles %>"%>
+      <input type="color" name="home_config[theme_attributes][subtitles]" id="home_config_theme_attributes_subtitles" value="<%= @configs.theme.subtitles %>"%>
       <input type="text" value="<%= @configs.theme.subtitles %>" id="subtitlesText" disabled>
     <% end %>
   </fieldset>
@@ -101,13 +101,13 @@
 <% end %>
 <%# comment %>
 <script>
-  document.getElementById('theme_primary').onchange = e => {
+  document.getElementById('home_config_theme_attributes_primary').onchange = e => {
     document.getElementById('primaryText').value = e.target.value
   }
-  document.getElementById('theme_background').onchange = e => {
+  document.getElementById('home_config_theme_attributes_background').onchange = e => {
     document.getElementById('backgroundText').value = e.target.value
   }
-  document.getElementById('theme_subtitles').onchange = e => {
+  document.getElementById('home_config_theme_attributes_subtitles').onchange = e => {
     document.getElementById('subtitlesText').value = e.target.value
   }
 </script>

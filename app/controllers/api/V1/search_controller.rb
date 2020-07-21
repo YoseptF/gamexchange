@@ -17,7 +17,7 @@ class Api::V1::SearchController < ApplicationController
                  }
                end,
         pages: gameslices.length,
-        likes: current_user.liked_games.map(&:id)
+        likes: current_user ? current_user.liked_games.map(&:id) : []
       }, status: :ok
     end
   end
