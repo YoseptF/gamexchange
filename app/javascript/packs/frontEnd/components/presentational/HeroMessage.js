@@ -1,15 +1,21 @@
 import React from 'react';
+import PropTypes, { string } from 'prop-types';
 import * as S from './Home.styles';
 
-const HeroMessage = () => (
+const HeroMessage = ({
+  heroBox,
+}) => (
   <S.HeroMessage>
-    <h1>Find housing anywhere</h1>
+    <h1>{heroBox.title}</h1>
     <p>
-      The best Offers for you at any point of your journey.
-      Wherever you are, feel yourself at your own home
+      {heroBox.message}
     </p>
-    <S.Button to="/signup">Start Free</S.Button>
+    <S.Button to={heroBox.link}>{heroBox.button}</S.Button>
   </S.HeroMessage>
 );
+
+HeroMessage.propTypes = {
+  heroBox: PropTypes.objectOf(string).isRequired,
+};
 
 export default HeroMessage;

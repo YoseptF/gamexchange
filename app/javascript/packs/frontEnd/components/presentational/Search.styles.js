@@ -5,6 +5,27 @@ const Search = styled.div`
   flex-wrap: wrap;
   margin-top: 15vh;
   justify-content: center;
+
+  .pagination{
+    flex: 0 0 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &> div a{
+      padding: 1rem;
+      background: ${props => props.theme.primary};
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      &:hover{
+        filter: brightness(70%);
+      }
+    }
+    a[data-value="${props => props.currentTab}"]{
+      filter: brightness(80%);
+    }
+  }
 `;
 const SearchItem = styled.div`
   cursor: pointer;

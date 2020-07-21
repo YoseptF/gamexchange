@@ -11,6 +11,7 @@ const Hero = styled.section`
 `;
 
 const links = css`
+  cursor: pointer;
   padding: 18px;
   margin: 8px;
   border-radius: 500px;
@@ -123,15 +124,11 @@ const Data = styled.section`
   display: flex;
   flex-direction: ${props => (props.reverse ? 'row-reverse' : 'row')};
   width:100vw;
-  img{
-    width: 60%;
+  .image{
+    width: 50%;
+    min-height: 40vh;
     flex-shrink: 0;
-  }
-  @media only screen and (max-width:700px){
-    flex-direction: column;
-    img{
-      width: 100%;
-    }
+    background: ${props => `url(${props.image}) no-repeat center/cover`};
   }
   .dataBox{
     padding: 50px;
@@ -139,9 +136,26 @@ const Data = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    max-width: 450px;
+    h1{
+      font-weight: bold;
+    }
     p{
       color: ${props => props.theme.subtitles || 'grey'}
+    }
+  }
+  @media only screen and (orientation: portrait){
+    flex-direction: column;
+    .image{
+      width: 100%;
+    }
+    .dataBox{
+      display: grid;
+      place-items: center; 
+      h1,p{ text-align: center;}
+      h1{ 
+        font-size: 3rem;
+      }
+      p{font-size: 2rem;}
     }
   }
   a{

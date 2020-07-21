@@ -5,50 +5,24 @@ const searchSlice = createSlice({
   initialState: {
     items: [
       {
-        image: 'https://via.placeholder.com/100',
-        score: 3,
-        price: 3600,
-        name: 'Beautiful family apaprtment',
-        description: 'Newly rennocated rare studion on basement level with lots of light and luxury detail.',
-        sellerId: 1,
-      },
-      {
-        image: 'https://via.placeholder.com/100',
-        score: 3,
-        price: 3600,
-        name: 'Beautiful family apaprtment',
-        description: 'Newly rennocated rare studion on basement level with lots of light and luxury detail.',
-        sellerId: 1,
-      },
-      {
-        image: 'https://via.placeholder.com/100',
-        score: 3,
-        price: 3600,
-        name: 'Beautiful family apaprtment',
-        description: 'Newly rennocated rare studion on basement level with lots of light and luxury detail.',
-        sellerId: 1,
-      },
-      {
-        image: 'https://via.placeholder.com/100',
-        score: 3,
-        price: 3600,
-        name: 'Beautiful family apaprtment',
-        description: 'Newly rennocated rare studion on basement level with lots of light and luxury detail.',
-        sellerId: 1,
-      },
-      {
-        image: 'https://via.placeholder.com/100',
-        score: 3,
-        price: 3600,
-        name: 'Beautiful family apaprtment',
-        description: 'Newly rennocated rare studion on basement level with lots of light and luxury detail.',
-        sellerId: 1,
+        image: '',
+        score: null,
+        price: null,
+        name: '',
+        description: '',
+        sellerId: null,
       },
     ],
+    pages: null,
   },
-  reducers: {},
+  reducers: {
+    updateItems: (state, action) => action.payload,
+  },
 });
 
+export const { updateItems } = searchSlice.actions;
+
 export const selectItems = state => state.search.items;
+export const selectPages = state => state.search.pages;
 
 export default searchSlice.reducer;

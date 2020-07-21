@@ -24,13 +24,19 @@ const SearchItem = ({
   </S.SearchItem>
 );
 
+SearchItem.defaultProps = {
+  score: 1,
+  sellerId: 1,
+  price: 1,
+};
+
 SearchItem.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
-  sellerId: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
+  score: PropTypes.number,
+  sellerId: PropTypes.number,
+  price: PropTypes.number,
   handleClick: PropTypes.func.isRequired,
 };
 

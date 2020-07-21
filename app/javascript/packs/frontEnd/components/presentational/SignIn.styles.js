@@ -45,6 +45,7 @@ const SignInBox = styled.div`
       }
     }
     input[type="submit"]{
+      cursor: pointer;
       font-weight: 400;
       border: none;
       padding: 18px 39px;

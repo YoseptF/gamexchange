@@ -29,9 +29,13 @@ const Menu = ({ buttons, isLoggedIn }) => (
   </S.Menu>
 );
 
+Menu.defaultProps = {
+  isLoggedIn: false,
+};
+
 Menu.propTypes = {
   buttons: PropTypes.arrayOf(objectOf(oneOfType([PropTypes.bool, PropTypes.string]))).isRequired,
-  isLoggedIn: PropTypes.bool.isRequired,
+  isLoggedIn: PropTypes.bool,
 };
 
 export default Menu;

@@ -1,0 +1,58 @@
+.alert{
+  position: fixed;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0);
+  padding: 35px;
+  z-index: 50;
+  background: lighten(#ec5200, 25);
+  border-radius: 11px;
+  border: 3px solid #ec5200;
+  animation: fadeout 6s ease-out forwards 1;
+}
+
+@keyframes fadeout{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+// adminPanel
+
+.configs{
+  max-width: 950px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  fieldset{
+    input{
+      width: 100%;
+      max-width: 900px;
+      font-size: 2rem;
+      line-height: 2rem;
+      padding: 12px;
+      margin-bottom: 3rem;
+      border: 3px solid black;
+      border-radius: 500px;
+    }
+    label{
+      display: inline;
+      font-size: 2rem;
+      font-weight: bold;
+      border-top: 3px solid black;
+      padding-top: 3rem;
+    }
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    img{
+      width: 50%;
+      margin: 1rem auto;
+    }
+  }
+}

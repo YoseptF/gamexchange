@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes, { any } from 'prop-types';
+import uid from 'uid';
 import * as S from './Home.styles';
 
 const Data = ({
   image, paragraph, title, reverse, button, hasButton,
 }) => (
-  <S.Data reverse={reverse}>
-    <img src={image} alt="dataImage" />
+  <S.Data reverse={reverse} image={image}>
+    <div className="image" />
     <div className="dataBox">
       <h1>{title}</h1>
       <p>
