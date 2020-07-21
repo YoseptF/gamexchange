@@ -29,14 +29,20 @@ const Search = styled.div`
 `;
 const SearchItem = styled.div`
   cursor: pointer;
-  flex: 1 1 435px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 435px;
   margin: 28px;
   &:hover{
     box-shadow: 2px -3px 23px 10px rgba(0,0,0,0.42);
   }
-
+  
+  @media only screen and (max-width:720px){
+    flex-grow: 1;
+  }
   img{
     width: 100%;
+    max-height: 290px;
   }
   .infoBox{
     display: flex;
@@ -56,6 +62,7 @@ const LightBox = styled.div`
   height: 90vh;
   margin: 2vw;
   z-index: 10;
+  touch-action: none;
   box-shadow: 2px -3px 23px 10px rgba(0,0,0,0.42);
   background: ${props => (props.theme.background)};
 
@@ -105,6 +112,19 @@ const LightBox = styled.div`
         display: grid;
         place-items: center;
         background: ${props => props.theme.primary};
+        button{
+          cursor: pointer;
+          height: 100%;
+          background: ${props => (props.liked ? 'red' : 'transparent')};
+          width: 100%;
+          border: 0;
+          &:hover{ 
+            background: rgba(0,0,0,0.2);
+           }
+          &:focus{
+            outline: none;
+          }
+        }
       }
     }
     @media only screen and (orientation: portrait){

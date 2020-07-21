@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import PropTypes, { oneOfType } from 'prop-types';
+import PropTypes, { oneOfType, number } from 'prop-types';
 import * as S from './Search.styles';
 
-const LightBox = ({ info, close }) => (
-  <S.LightBox active={info.name} image={info.image}>
+const LightBox = ({
+  info, close, updateLike, likes,
+}) => (
+  <S.LightBox active={info.name} image={info.image} liked={likes.includes(info.id)}>
     <div className="container">
       <i className="fas fa-times" onClick={() => close({})} />
       <div className="left">
@@ -25,7 +27,16 @@ const LightBox = ({ info, close }) => (
         <h1>About this listing</h1>
         <p>{info.description}</p>
         <div className="favorite">
-          <a href="/"><h1>Add to favorites</h1></a>
+          <button
+            type="button"
+            data-value={info.id}
+            data-liked={likes.includes(info.id)}
+            onClick={updateLike}
+          >
+            <h1 data-value={info.id} data-liked={likes.includes(info.id)}>
+              {likes.includes(info.id) ? 'Remove from favorites' : 'Add to favorites'}
+            </h1>
+          </button>
         </div>
       </div>
     </div>
@@ -35,5 +46,7 @@ const LightBox = ({ info, close }) => (
 LightBox.propTypes = {
   info: PropTypes.objectOf(oneOfType([PropTypes.string, PropTypes.number])).isRequired,
   close: PropTypes.func.isRequired,
+  updateLike: PropTypes.func.isRequired,
+  likes: PropTypes.arrayOf(number).isRequired,
 };
 export default LightBox;

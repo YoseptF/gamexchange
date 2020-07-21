@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import * as S from './Search.styles';
 
 const SearchItem = ({
-  name, score, image, description, sellerId, price, handleClick,
+  name, score, image, description, sellerId, price, handleClick, id,
 }) => (
   <S.SearchItem onClick={() => handleClick({
-    name, score, image, description, sellerId, price,
+    name, score, image, description, sellerId, price, id,
   })}
   >
     <img src={image} alt={name} />
@@ -28,6 +28,7 @@ SearchItem.defaultProps = {
   score: 1,
   sellerId: 1,
   price: 1,
+  id: 1,
 };
 
 SearchItem.propTypes = {
@@ -38,6 +39,7 @@ SearchItem.propTypes = {
   sellerId: PropTypes.number,
   price: PropTypes.number,
   handleClick: PropTypes.func.isRequired,
+  id: PropTypes.number,
 };
 
 export default SearchItem;

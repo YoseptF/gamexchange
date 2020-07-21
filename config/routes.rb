@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :home, only: [:index]
       resources :search, only: [:index]
+      resources :like, only: [:create, :destroy, :index]
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

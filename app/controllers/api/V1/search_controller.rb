@@ -12,10 +12,12 @@ class Api::V1::SearchController < ApplicationController
                    score: game.score,
                    name: game.name,
                    description: game.description,
-                   sellerId: game.owner
+                   sellerId: game.owner,
+                   id: game.id
                  }
                end,
-        pages: gameslices.length
+        pages: gameslices.length,
+        likes: current_user.liked_games.map(&:id)
       }, status: :ok
     end
   end

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const { createSlice } = require('@reduxjs/toolkit');
 
 const searchSlice = createSlice({
@@ -11,18 +12,23 @@ const searchSlice = createSlice({
         name: '',
         description: '',
         sellerId: null,
+        id: null,
       },
     ],
+    likes: [],
     pages: null,
   },
   reducers: {
     updateItems: (state, action) => action.payload,
+    addLike: (state, action) => { state.likes.push(parseInt(action.payload, 10)); },
+    removeLike: (state, action) => { state.likes = state.likes.filter(item => item !== parseInt(action.payload, 10)); },
   },
 });
 
-export const { updateItems } = searchSlice.actions;
+export const { updateItems, addLike, removeLike } = searchSlice.actions;
 
 export const selectItems = state => state.search.items;
 export const selectPages = state => state.search.pages;
+export const selectLikes = state => state.search.likes;
 
 export default searchSlice.reducer;
