@@ -29,7 +29,7 @@ const Search = styled.div`
 `;
 const SearchItem = styled.div`
   cursor: pointer;
-  flex: 0 1 350px;
+  flex: 1 1 435px;
   margin: 28px;
   &:hover{
     box-shadow: 2px -3px 23px 10px rgba(0,0,0,0.42);

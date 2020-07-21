@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/signin', to: 'logs#signin'
 
   get '/adminPanel', to: 'static#admin_panel'
-  post 'config', to: 'static#update_config', as: 'home_config'
+  patch 'config', to: 'static#update_config', as: 'home_config'
 
   namespace :api do
     namespace :v1 do

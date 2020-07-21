@@ -56,13 +56,20 @@ const Nav = styled.nav`
   align-items: center;
   margin: 2vw 5vw;
   z-index: 10;
-
+  a{
+    text-decoration: none;
+    -webkit-text-stroke: 0.5px black;
+  } 
+  
   .logoCombo{
     height: 10vh;
     display: flex;
     align-items: center;
     color: white;
     font-size: 2rem;
+    h1{
+      -webkit-text-stroke: 1px black;
+    }
     img{
       height: 100%;
       margin-right: 1rem;
@@ -73,6 +80,7 @@ const Nav = styled.nav`
 const Menu = styled.ul`
   list-style: none;
   display: flex;
+
   @media only screen and (max-width:700px){
     display: none;
   }

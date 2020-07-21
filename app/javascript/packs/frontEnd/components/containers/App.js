@@ -39,7 +39,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Nav logo={logo} buttons={buttons} title={title} isLoggedIn={!checkAdmin()} />
+        <Nav logo={logo} buttons={buttons} title={title} isLoggedIn={isLoggedIn} />
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/sign**" component={Sign} />
