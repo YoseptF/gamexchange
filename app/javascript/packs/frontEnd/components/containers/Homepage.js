@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import uid from 'uid';
 import { useTransition, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
 import Hero from '../presentational/Hero';
@@ -33,7 +32,7 @@ const Homepage = () => {
       const buffer = [...carouselRef.current];
       buffer.push(buffer.shift());
       dispatch(updateTestimonials(buffer));
-    }, testimonials.time * 1000);
+    }, testimonials.time * 10000);
 
     setLoop(slideLoop);
     return 0;
@@ -44,9 +43,10 @@ const Homepage = () => {
   }, []); // eslint-disable-line
 
   const transitions = useTransition(testimonials.data.map((item, i) => (
-    { ...item, xy: [400 * i, 0] })), item => item.name, {
+    { ...item, xy: [100 * i, 0] })), item => item.name, {
     from: ({ xy }) => ({ xy, opacity: 0 }),
     enter: ({ xy }) => ({ xy, opacity: 1 }),
+    leave: ({ xy }) => ({ xy, opacity: 0 }),
     update: ({ xy }) => ({ xy }),
 
   });
@@ -108,11 +108,12 @@ const Homepage = () => {
               {...bind()} // eslint-disable-line react/jsx-props-no-spreading
               key={key}
               style={{
-                transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`),
+                transform: xy.interpolate((x, y) => `translate(-600px, 0) translate3d(${x}px,${y}px,0)`),
                 ...rest,
-                minHeight: '300px',
-                minWidth: '200px',
-                margin: '100px 0',
+                minHeight: '400px',
+                minWidth: '600px',
+
+                padding: '28px',
                 touchAction: 'none',
               }}
             >

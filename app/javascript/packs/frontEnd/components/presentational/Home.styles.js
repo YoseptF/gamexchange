@@ -41,9 +41,15 @@ const HeroMessage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  p{margin: 2rem 0}
+  p{
+    margin: 2rem 0;
+    font-size: 2vh;
+  }
+  a{
+    font-size: 1.5vh;
+  }
   h1{
-    font-size: 3rem;
+    font-size: 3vh;
   }
 `;
 
@@ -175,17 +181,21 @@ const Testimonials = styled.div`
   width:100vw;
   display: flex;
   overflow: hidden;
+  @media only screen and (orientation:portrait){
+    padding-bottom: 300px;
+  }
 `;
 
 const Testimonial = styled.div`
   display:flex;
+  width: 100%;
+  height: auto;
+  padding: 1rem;
   position: absolute;
-  width: 200px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align:center;
-  padding: 0 150px;
   box-shadow: 2px -3px 23px 10px rgba(0,0,0,0.42);
   @media only screen and (max-width:700px){
     width: 100vmin;
@@ -199,7 +209,10 @@ const Testimonial = styled.div`
   }
   h1{
     margin:0;
-    font-size: ${props => (props.name.length > 13 ? '1.3rem' : '2rem')}
+    font-size: 3vh;
+  }
+  p{
+    font-size: 2vh;
   }
 `;
 

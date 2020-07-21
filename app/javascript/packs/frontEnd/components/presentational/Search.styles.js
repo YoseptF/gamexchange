@@ -43,6 +43,9 @@ const SearchItem = styled.div`
   img{
     width: 100%;
     max-height: 290px;
+    @media only screen and (max-width:720px){
+      max-height: unset;
+    }
   }
   .infoBox{
     display: flex;
