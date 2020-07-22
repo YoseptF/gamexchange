@@ -52,7 +52,7 @@ class Api::V1::HomeController < ApplicationController
         image: item.avatar.attached? ? url_for(item.avatar) : 'http://via.placeholder.com/150.jpg',
         title: item.title,
         name: item.name,
-        text: item.text,
+        text: item.text
       }
     end
   end

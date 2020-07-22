@@ -34,8 +34,7 @@ class StaticController < ApplicationController
                                           :id,
                                           testimonial_data_attributes: %i[name avatar title text id]
                                         ],
-                                        buttons_attributes: %i[text link external isRounded form_type id]
-                                      )
+                                        buttons_attributes: %i[text link external isRounded form_type id])
   end
 
   def admin?
