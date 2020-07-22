@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/adminPanel', to: 'static#admin_panel'
   patch 'config', to: 'static#update_config', as: 'home_config'
+  delete "/logout", to: "logs#logout"
 
   namespace :api do
     namespace :v1 do

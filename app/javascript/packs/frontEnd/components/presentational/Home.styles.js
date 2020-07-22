@@ -88,12 +88,36 @@ const Menu = styled.ul`
   display: flex;
 
   @media only screen and (max-width:700px){
-    display: none;
+    flex-direction: column;
+  }
+  button{
+    -webkit-text-stroke: 1px black;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    border: none;
+    background: transparent;
+    @media only screen and (max-width:700px){
+      padding: 0;
+      text-align: right;
+      text-decoration: underline;
+    }
+
+    &:hover{
+      color: rgba(255,255,255,0.7);
+    }
   }
 `;
 
 const MenuItem = styled.li`
-padding: 18px;
+  padding: 18px;
+  @media only screen and (max-width:700px){
+      padding: 0;
+      text-align: right;
+      text-decoration: underline;
+    }
 
   ${props => props.rounded && css`
     background: rgba(0,0,0,0.2);
@@ -181,9 +205,6 @@ const Testimonials = styled.div`
   width:100vw;
   display: flex;
   overflow: hidden;
-  @media only screen and (orientation:portrait){
-    padding-bottom: 300px;
-  }
 `;
 
 const Testimonial = styled.div`

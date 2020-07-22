@@ -49,6 +49,10 @@
         border: none;
         font-size: 1.5rem;
         padding: 24px;
+        @media only screen and (orientation:portrait){
+            right: 50%;
+            transform: translate(50%, -1rem);
+        }
     }
 
     fieldset {

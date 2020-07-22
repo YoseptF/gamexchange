@@ -32,7 +32,7 @@ const Homepage = () => {
       const buffer = [...carouselRef.current];
       buffer.push(buffer.shift());
       dispatch(updateTestimonials(buffer));
-    }, testimonials.time * 10000);
+    }, testimonials.time * 1000);
 
     setLoop(slideLoop);
     return 0;
@@ -108,11 +108,10 @@ const Homepage = () => {
               {...bind()} // eslint-disable-line react/jsx-props-no-spreading
               key={key}
               style={{
-                transform: xy.interpolate((x, y) => `translate(-600px, 0) translate3d(${x}px,${y}px,0)`),
+                transform: xy.interpolate((x, y) => `translate(-30px, 0) translate3d(${x}px,${y}px,0)`),
                 ...rest,
                 minHeight: '400px',
                 minWidth: '600px',
-
                 padding: '28px',
                 touchAction: 'none',
               }}

@@ -7,6 +7,7 @@ class Api::V1::LikeController < ApplicationController
                  image: game.cover.attached? ? url_for(game.cover) : 'https://via.placeholder.com/100',
                  score: game.score,
                  name: game.name,
+                 price: game.price,
                  description: game.description,
                  sellerId: game.owner,
                  id: game.id

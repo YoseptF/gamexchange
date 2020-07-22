@@ -19,6 +19,9 @@ const SignInBox = styled.div`
     position:fixed;
     height: 100vh;
     width: 100vw;
+    form{
+      width: 90%;
+    }
   }
   h1{ 
     margin: 0;
@@ -33,11 +36,12 @@ const SignInBox = styled.div`
   form{
     display:flex;
     flex-direction:column;
+    margin-top: 2rem;
     input{
       text-align: center;
       font-size:1.6rem;
       border-radius: 500px;
-      margin: 1rem 0;
+      margin-bottom: 1rem;
       padding: 8px 24px;
       &:focus{
         border: ${props => `2px solid ${props.theme.primary}`};

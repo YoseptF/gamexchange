@@ -9,10 +9,10 @@
 require 'open-uri'
 
 User.create(
-  name: 'Joseph',
-  email: 'yosept.flores@gmail.com',
-  password: '123654lol',
-  password_confirmation: '123654lol',
+  name: 'Admin',
+  email: 'admin@email.com',
+  password: '123',
+  password_confirmation: '123',
   is_admin: true
 )
 

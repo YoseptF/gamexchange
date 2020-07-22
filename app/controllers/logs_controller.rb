@@ -23,6 +23,12 @@ class LogsController < ApplicationController
     end
   end
 
+  def logout
+    log_out
+  end
+
+  private
+
   def sign_up_params
     params.require(:user).permit(:email, :name, :password, :password_confirmation)
   end

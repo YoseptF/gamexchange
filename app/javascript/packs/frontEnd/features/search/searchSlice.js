@@ -15,6 +15,17 @@ const searchSlice = createSlice({
         id: null,
       },
     ],
+    itemLike: [
+      {
+        image: '',
+        score: null,
+        price: null,
+        name: '',
+        description: '',
+        sellerId: null,
+        id: null,
+      },
+    ],
     likes: [],
     pages: null,
   },
@@ -30,5 +41,6 @@ export const { updateItems, addLike, removeLike } = searchSlice.actions;
 export const selectItems = state => state.search.items;
 export const selectPages = state => state.search.pages;
 export const selectLikes = state => state.search.likes;
+export const selectItemsLike = state => state.search.itemsLike;
 
 export default searchSlice.reducer;

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import uid from 'uid';
 import { useLocation, useHistory, Link } from 'react-router-dom';
 import {
-  selectItems, updateItems, selectPages, selectLikes, addLike, removeLike,
+  selectItems, updateItems, selectPages, selectLikes, addLike, removeLike, selectItemsLike,
 } from '../../features/search/searchSlice';
 import * as S from '../presentational/Search.styles';
 import SearchItem from '../presentational/SearchItem';
@@ -11,12 +11,15 @@ import LightBox from '../presentational/LightBox';
 
 const Search = () => {
   const items = useSelector(selectItems);
+  const itemsLike = useSelector(selectItemsLike);
   const pages = useSelector(selectPages);
   const likes = useSelector(selectLikes);
 
   const location = useLocation();
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const isUser = location.pathname.slice(1) === 'user';
 
   const initialSearch = async () => {
     const response = await fetch(`/api/v1/search${location.search}`);
@@ -56,6 +59,7 @@ const Search = () => {
           },
         });
         dispatch(removeLike(parseInt(value, 10)));
+        if (isUser) window.location.reload();
       } catch (e) {
         history.push('/');
       }
@@ -76,11 +80,13 @@ const Search = () => {
     }
   };
 
+  const itemToShow = isUser ? itemsLike : items;
+
   return (
     <S.Search currentTab={currentTab}>
       <LightBox info={lightBoxInfo} close={setInfo} updateLike={updateLike} likes={likes} />
-      {items
-        && items.map(item => (
+      { itemToShow
+        && itemToShow.map(item => (
           <SearchItem
             handleClick={setInfo}
             key={uid()}
@@ -93,14 +99,17 @@ const Search = () => {
             id={item.id}
           />
         ))}
+      {!isUser
+      && (
       <div className="pagination">
         {pages
-          && Array.from(Array(pages).keys()).map(index => (
-            <div key={uid()}>
-              <Link onClick={handleClick} data-value={index + 1} to={`/search?page=${index + 1}`}>{index + 1}</Link>
-            </div>
-          ))}
+        && Array.from(Array(pages).keys()).map(index => (
+          <div key={uid()}>
+            <Link onClick={handleClick} data-value={index + 1} to={`/search?page=${index + 1}`}>{index + 1}</Link>
+          </div>
+        ))}
       </div>
+      )}
     </S.Search>
   );
 };
