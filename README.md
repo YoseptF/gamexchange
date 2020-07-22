@@ -26,6 +26,10 @@ Game x Change is a ruby/react template to publish articles and vote for them.
     ```
     $ rails db:migrate db:seed
     ```
+5. Run the server
+   ```
+   $ rails s
+   ```
 6. Open you browser on `localhost:3000 or 127.0.0.1:3000`
 
 7. (optional) This project uses Azure for active storage on production, if you want to use it, you need to add the following api keys in your `.env` file:
