@@ -37,7 +37,8 @@ const Search = () => {
   }, [location]);
 
   const [lightBoxInfo, setInfo] = useState({});
-  const [currentTab, setTab] = useState(location.search ? location.search[location.search.length - 1] : 1);
+  const [currentTab, setTab] = useState(location.search
+    ? location.search[location.search.length - 1] : 1);
 
   const handleClick = e => {
     setTab(e.target.dataset.value);

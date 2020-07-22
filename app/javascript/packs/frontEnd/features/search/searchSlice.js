@@ -32,7 +32,11 @@ const searchSlice = createSlice({
   reducers: {
     updateItems: (state, action) => action.payload,
     addLike: (state, action) => { state.likes.push(parseInt(action.payload, 10)); },
-    removeLike: (state, action) => { state.likes = state.likes.filter(item => item !== parseInt(action.payload, 10)); },
+    removeLike: (state, action) => {
+      state.likes = state.likes.filter(item => (
+        item !== parseInt(action.payload, 10)
+      ));
+    },
   },
 });
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes, { any } from 'prop-types';
-import uid from 'uid';
+import PropTypes, { string } from 'prop-types';
 import * as S from './Home.styles';
 
 const Data = ({
@@ -31,7 +30,7 @@ Data.propTypes = {
   paragraph: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   reverse: PropTypes.bool,
-  button: PropTypes.objectOf(any),
+  button: PropTypes.objectOf(string),
   hasButton: PropTypes.bool,
 };
 

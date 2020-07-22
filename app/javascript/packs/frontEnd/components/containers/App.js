@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import Homepage from './Homepage';
 import {
-  selectTitle, selectLogo, selectTheme, setConfig, a,
+  selectTitle, selectLogo, selectTheme, setConfig,
 } from '../../features/home/homeSlice';
 import Nav from '../presentational/Nav';
 import Sign from './Sign';

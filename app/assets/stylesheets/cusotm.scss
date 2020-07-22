@@ -1,115 +1,121 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .alert {
-    position: fixed;
-    left: 50%;
-    top: 0%;
-    transform: translate(-50%, 0);
-    padding: 35px;
-    z-index: 50;
-    background: lighten(#ec5200, 25);
-    border-radius: 11px;
-    border: 3px solid #ec5200;
-    animation: fadeout 6s ease-out forwards 1;
+  position: fixed;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0);
+  padding: 35px;
+  z-index: 50;
+  background: #ec5200;
+  filter: brightness(200%);
+  border-radius: 11px;
+  border: 3px solid #ec5200;
+  animation: fadeout 6s ease-out forwards 1;
 }
 
 @keyframes fadeout {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    50% {
-        opacity: 1;
-    }
+  50% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 // adminPanel
 
 .configs {
-    display: flex;
-    flex-wrap: wrap;
-    font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Roboto', sans-serif;
 
-    input[type="submit"]{
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        font-weight: bold;
-        color: white;
-        background-color: orange;
-        border-radius: 11px;
-        border: none;
-        font-size: 1.5rem;
-        padding: 24px;
-        @media only screen and (orientation:portrait){
-            right: 50%;
-            transform: translate(50%, -1rem);
-        }
+  input[type="submit"] {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: orange;
+    border-radius: 11px;
+    border: none;
+    font-size: 1.5rem;
+    padding: 24px;
+
+    @media only screen and (orientation: portrait) {
+      right: 50%;
+      transform: translate(50%, -1rem);
     }
+  }
+
+  fieldset {
+    flex: 1 1 435px;
+    margin: 1rem;
 
     fieldset {
-        flex: 1 1 435px;
-        margin: 1rem;
-
-        fieldset{
-            width: 90%;
-            margin: 0;
-        }
-        input {
-            width: 90%;
-            text-align: center;
-            max-width: 900px;
-            font-size: 2rem;
-            line-height: 2rem;
-            padding: 12px;
-            margin-bottom: 3rem;
-            border: 3px solid black;
-            border-radius: 500px;
-            &:focus{
-              outline: none;
-              border: 3px solid red;
-            }
-        }
-
-        input[type="color"] {
-            padding: 10px;
-            height: 110px;
-            width: 100px;
-            border-radius: 11px;
-            margin: 2rem auto;
-            cursor: pointer;
-            &:hover{
-                box-shadow: 2px -3px 23px 10px rgba(0,0,0,0.42);
-            }
-        }
-
-        label {
-            display: inline;
-            font-size: 2rem;
-            font-weight: bold;
-            border-top: 3px solid black;
-            padding-top: 3rem;
-        }
-
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-
-        .heroPreview {
-            width: 80%;
-            margin: 1rem auto;
-          }
-          .logoPreview{
-            width: 30%;
-            margin: 1rem auto;
-        }
+      width: 90%;
+      margin: 0;
     }
+
+    input {
+      width: 90%;
+      text-align: center;
+      max-width: 900px;
+      font-size: 2rem;
+      line-height: 2rem;
+      padding: 12px;
+      margin-bottom: 3rem;
+      border: 3px solid black;
+      border-radius: 500px;
+
+      &:focus {
+        outline: none;
+        border: 3px solid red;
+      }
+    }
+
+    input[type="color"] {
+      padding: 10px;
+      height: 110px;
+      width: 100px;
+      border-radius: 11px;
+      margin: 2rem auto;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 2px -3px 23px 10px rgba(0, 0, 0, 0.42);
+      }
+    }
+
+    label {
+      display: inline;
+      font-size: 2rem;
+      font-weight: bold;
+      border-top: 3px solid black;
+      padding-top: 3rem;
+    }
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .heroPreview {
+      width: 80%;
+      margin: 1rem auto;
+    }
+
+    .logoPreview {
+      width: 30%;
+      margin: 1rem auto;
+    }
+  }
 }

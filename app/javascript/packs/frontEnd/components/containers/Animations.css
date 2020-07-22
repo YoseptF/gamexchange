@@ -4,41 +4,46 @@ body {
 }
 
 .fade-appear {
-    opacity: 0;
-    /* transform: translate(-100px,0); */
+  opacity: 0;
+
+  /* transform: translate(-100px,0); */
 }
 
 .fade-appear.fade-appear-active {
-    opacity: 1;
-    /* transform: translate(-100px,0); */
-    transition: opacity 300ms linear;
+  opacity: 1;
+
+  /* transform: translate(-100px,0); */
+  transition: opacity 300ms linear;
 }
 
 /* enter */
 
 .fade-enter {
-    opacity: 0;
-    transform: translate(-100px,0);
+  opacity: 0;
+  transform: translate(-100px, 0);
 }
 
 .fade-enter.fade-enter-active {
-    opacity: 1;
-    /* transform: translate(0,0); */
-    transition: opacity 300ms linear;
+  opacity: 1;
+
+  /* transform: translate(0,0); */
+  transition: opacity 300ms linear;
 }
 
 /* exit */
 
 .fade-exit {
-    opacity: 1;
-    /* transform: translate(0,0); */
+  opacity: 1;
+
+  /* transform: translate(0,0); */
 }
 
 .fade-exit.fade-exit-active {
-    /* transform: translate(-100px,0); */
-    opacity: 0;
-    transition: opacity 300ms linear;
+  /* transform: translate(-100px,0); */
+  opacity: 0;
+  transition: opacity 300ms linear;
 }
+
 .fade-exit-done {
   opacity: 0;
 }

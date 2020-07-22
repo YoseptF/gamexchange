@@ -1,22 +1,5 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import faker from 'faker';
-
-const avatars = [
-  faker.image.avatar(),
-  faker.image.avatar(),
-  faker.image.avatar(),
-  faker.image.avatar(),
-  faker.image.avatar(),
-];
-
-const names = [
-  `${faker.name.firstName()} ${faker.name.lastName()}`,
-  `${faker.name.firstName()} ${faker.name.lastName()}`,
-  `${faker.name.firstName()} ${faker.name.lastName()}`,
-  `${faker.name.firstName()} ${faker.name.lastName()}`,
-  `${faker.name.firstName()} ${faker.name.lastName()}`,
-];
 
 const homeSlice = createSlice({
   name: 'home',
