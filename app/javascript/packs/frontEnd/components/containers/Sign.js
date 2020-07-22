@@ -29,7 +29,7 @@ const Sign = () => {
     <S.Container>
       <S.SignInBox>
         <h1>{formatedTitle}</h1>
-        <h2>Hello there! Sign in and strat managing your system</h2>
+        <h2>Hello there! Sign in and start managing your system</h2>
         <form action={location.pathname} acceptCharset="UTF-8" method="post">
           <input type="hidden" name="authenticity_token" value={authenticityToken} />
           {formatedTitle === 'sign up'

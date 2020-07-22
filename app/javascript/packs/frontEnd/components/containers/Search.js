@@ -8,12 +8,14 @@ import {
 import * as S from '../presentational/Search.styles';
 import SearchItem from '../presentational/SearchItem';
 import LightBox from '../presentational/LightBox';
+import { selectLogginStatus } from '../../features/home/homeSlice';
 
 const Search = () => {
   const items = useSelector(selectItems);
   const itemsLike = useSelector(selectItemsLike);
   const pages = useSelector(selectPages);
   const likes = useSelector(selectLikes);
+  const isLoggedIn = useSelector(selectLogginStatus);
 
   const location = useLocation();
   const dispatch = useDispatch();
@@ -29,6 +31,9 @@ const Search = () => {
       history.push('/search?page=1');
     } else {
       dispatch(updateItems(json));
+      setTimeout(() => {
+        if (!isLoggedIn) history.push('/signin');
+      }, 200);
     }
   };
 
