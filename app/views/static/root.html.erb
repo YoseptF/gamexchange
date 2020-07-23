@@ -1,1 +1,5 @@
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%== message.to_s.gsub(/\[|\]/, '').gsub(/\,/, "<br/>") %></div>
+<% end %>
 <div id="root"></div>
+<%= javascript_pack_tag 'frontEnd/index' %>

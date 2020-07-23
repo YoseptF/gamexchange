@@ -1,0 +1,113 @@
+<%= form_with model:@configs, method: 'patch', local: true, html: {class: 'configs'} do |f| %>
+  <fieldset>
+    <legend>Nav:</legend>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :hero %>
+    <%= image_tag @configs.hero.attached? ? url_for(@configs.hero) : 'https://via.placeholder.com', class: 'heroPreview' %>
+    <%= f.file_field :hero %>
+    <%= f.label :logo %>
+    <%= image_tag url_for(@configs.logo), class: 'logoPreview' %>
+    <%= f.file_field :logo %>
+    <fieldset>
+      <legend>Nav Buttons: </legend>
+      <%= f.fields_for :buttons, @configs.buttons do |bf| %>
+        <%= bf.label :text %>
+        <%= bf.text_field :text %>
+        <%= bf.label :link %>
+        <%= bf.text_field :link %>
+        <%= bf.label :external %>
+        <%= bf.check_box :external %>
+        <%= bf.label :isRounded %>
+        <%= bf.check_box :isRounded %>
+      <% end %>
+    </fieldset>
+    <fieldset>
+      <legend>HeroBox: </legend>
+      <%= f.fields_for :hero_box, @configs.hero_box do |hf| %>
+        <%= hf.label :title %>
+        <%= hf.text_field :title %>
+        <%= hf.label :message %>
+        <%= hf.text_field :message %>
+        <%= hf.label :button %>
+        <%= hf.text_field :button %>
+        <%= hf.label :link %>
+        <%= hf.text_field :link %>
+      <% end %>
+    </fieldset>
+  </fieldset>
+  <fieldset>
+    <legend>Theme: </legend>
+    <%= f.fields_for :theme, @configs.theme do |tf| %>
+      <%= tf.label :primary %>
+      <input type="color" name="home_config[theme_attributes][primary]" id="home_config_theme_attributes_primary" value="<%= @configs.theme.primary %>"%>
+      <input type="text" value="<%= @configs.theme.primary %>" id="primaryText" disabled>
+      <%= tf.label :background %>
+      <input type="color" name="home_config[theme_attributes][background]" id="home_config_theme_attributes_background" value="<%= @configs.theme.background %>"%>
+      <input type="text" value="<%= @configs.theme.background %>" id="backgroundText" disabled>
+      <%= tf.label :subtitles %>
+      <input type="color" name="home_config[theme_attributes][subtitles]" id="home_config_theme_attributes_subtitles" value="<%= @configs.theme.subtitles %>"%>
+      <input type="text" value="<%= @configs.theme.subtitles %>" id="subtitlesText" disabled>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <legend>Showcase: </legend>
+    <%= f.fields_for :show_case, @configs.show_case do |sf| %>
+      <%= sf.label :title %>
+      <%= sf.text_field :title %>
+      <%= sf.label :subtitle %>
+      <%= sf.text_field :subtitle %>
+      <fieldset>
+        <legend>Data: </legend>
+        <%= sf.fields_for :show_case_data, sf.object.show_case_data do |sdf| %>
+          <%= sdf.label :title %>
+          <%= sdf.text_field :title %>
+          <%= sdf.label :image %>
+          <%= image_tag sdf.object.image.attached? ? url_for(sdf.object.image) : 'https://via.placeholder.com/500', class: 'heroPreview' %>
+          <%= sdf.file_field :image %>
+          <%= sdf.label :paragraph %>
+          <%= sdf.text_area :paragraph %>
+          <%= sdf.label :reverse %>
+          <%= sdf.check_box :reverse %>
+          <%= sdf.label :hasButton %>
+          <%= sdf.check_box :hasButton %>
+        <% end %>
+      </fieldset>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <legend>Testimonials: </legend>
+    <%= f.fields_for :testimonial, @configs.testimonial do |tf| %>
+      <%= tf.label :title %>
+      <%= tf.text_field :title %>
+      <%= tf.label :subtitle %>
+      <%= tf.text_field :subtitle %>
+      <%= tf.label :time %>
+      <%= tf.number_field :time, step: 0.5, in: 3..15 %>
+      <%= tf.fields_for :testimonial_data, tf.object.testimonial_data do |tdf| %>
+        <%= tdf.label :name %>
+        <%= tdf.text_field :name %>
+        <%= tdf.label :title %>
+        <%= tdf.text_field :title %>
+        <%= tdf.label :avatar %>
+        <%= image_tag tdf.object.avatar.attached? ? url_for(tdf.object.avatar) : 'https://via.placeholder.com/500', class: 'heroPreview' %>
+        <%= tdf.file_field :avatar %>
+        <%= tdf.label :text %>
+        <%= tdf.text_area :text %>
+      <% end %>
+    <% end %>
+  </fieldset>
+  <%= f.submit %>
+<% end %>
+<%# comment %>
+<script>
+  document.getElementById('home_config_theme_attributes_primary').onchange = e => {
+    document.getElementById('primaryText').value = e.target.value
+  }
+  document.getElementById('home_config_theme_attributes_background').onchange = e => {
+    document.getElementById('backgroundText').value = e.target.value
+  }
+  document.getElementById('home_config_theme_attributes_subtitles').onchange = e => {
+    document.getElementById('subtitlesText').value = e.target.value
+  }
+</script>
